@@ -41,13 +41,15 @@ class SWAPI {
         option.innerHTML = person.name
         peopleSelector.appendChild(option)
       })
-      .catch((err) => {
-        console.log(err)
-      })
+      this.toggleLoader()
+      document.querySelector('#people').style.visibility = 'visible'
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
-  getPerson(url) {
+  getPerson(url) {git 
     this.toggleLoader()
     fetch(url)
       .then((response) => {
@@ -55,7 +57,7 @@ class SWAPI {
       })
       .then((json) => {
         document.querySelector('#person').style.visibility = 'visible'
-        document.querySelector.('#person h2').innerHTML = json.name
+        document.querySelector('#person h2').innerHTML = json.name
         this.toggleLoader()
       })
       .catch((err) => {
